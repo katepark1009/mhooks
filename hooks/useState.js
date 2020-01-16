@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 //Example
-function App() {
+const App = () => {
   const [item, setItem] = useState(1)
   // useState return array. It can be 'const item = useState(1)[0]'
   const incrementItem = () => setItem(item + 1)

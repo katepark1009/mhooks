@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+
 export const useInput = (initialValue, validator) => {
   const [value, setValue] = useState(initialValue);
   const onChange = e => {
@@ -17,7 +19,8 @@ export const useInput = (initialValue, validator) => {
 };
 
 //Example
-function App() {
+const App = () => {
+
   const maxLen = value => value.length < 10; //validator for 'name'
   const noAt = value => !value.includes("@"); //validator for 'nameTwo'
 

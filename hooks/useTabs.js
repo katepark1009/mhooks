@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react'
+
 //data from API
 const content = [
   {
@@ -24,7 +26,7 @@ export const useTabs = (initialTab, allTabs) => {
 };
 
 //Example
-function App() {
+const App = () => {
   const { currentItem, changeItem } = useTabs(0, content);
   return (
     <div className="App">
