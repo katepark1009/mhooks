@@ -6,6 +6,9 @@ import { useHover } from './hooks/useHover'
 import { usePreventLeave } from './hooks/usePreventLeave'
 import { useTabs } from './hooks/useTabs'
 import { useTitle } from './hooks/useTitle'
+import { useNetwork } from './hooks/useNetwork'
+import { useScroll } from './hooks/useScroll'
+import { useFullscreen } from './hooks/useFullscreen'
 
 export {
   useBeforeLeave,
@@ -15,5 +18,8 @@ export {
   useHover,
   usePreventLeave,
   useTabs,
-  useTitle
+  useTitle,
+  useNetwork,
+  useScroll,
+  useFullscreen
 }
