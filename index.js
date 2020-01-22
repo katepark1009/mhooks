@@ -9,6 +9,10 @@ import { useTitle } from './hooks/useTitle'
 import { useNetwork } from './hooks/useNetwork'
 import { useScroll } from './hooks/useScroll'
 import { useFullscreen } from './hooks/useFullscreen'
+import { useNotification } from './hooks/useNotification'
+import { useAxios } from './hooks/useAxios'
+import { useInputWithValidator } from './hooks/useInputWithValidator'
+
 
 export {
   useBeforeLeave,
@@ -21,5 +25,8 @@ export {
   useTitle,
   useNetwork,
   useScroll,
-  useFullscreen
+  useFullscreen,
+  useNotification,
+  useAxios,
+  useInputWithValidator
 }

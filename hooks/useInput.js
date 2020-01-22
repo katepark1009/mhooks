@@ -1,37 +1,12 @@
-import React, { useState } from 'react'
+import { useState, useCallback } from 'react'
 
-export const useInput = (initialValue, validator) => {
-  const [value, setValue] = useState(initialValue);
-  const onChange = e => {
-    const {
-      target: { value }
-    } = e;
-    let willUpdate = true;
-    if (typeof validator === "function") {
-      willUpdate = validator(value); 
-      //validator 값(T/F)에 따라 업데이트 될지 말지 체크
-    }
-    if (willUpdate) {
-      setValue(value);
-    }
-  };
-  return { value, onChange };
-};
-
-//Example
-const App = () => {
-
-  const maxLen = value => value.length < 10; //validator for 'name'
-  const noAt = value => !value.includes("@"); //validator for 'nameTwo'
-
-  const name = useInput("Mr.", maxLen);
-  const nameTwo = useInput("Ms.", noAt);
-
-  return (
-    <div className="App">
-      <input placeholder="Name" {...name} />
-      <input placeholder="Name" {...nameTwo} />
-      {/* {...name}은 useInput에서 리턴한 { value }...즉, value = {name.value} 와 같음 */}
-    </div>
-  );
+//custom hook for onChange handler
+export const useInput = (initValue = null) => {
+  const [value, setter] = useState(initValue)
+  const handler = useCallback((e) => {
+    //이벤트 리스너들은 특정 컴포넌트 안에 들어가 있는데, 자식 컴포넌트에 전달하는 함수들 => prop으로 넘겨주는 함수들은 useCallback으로 감싸줘야 함.  
+    //useState때문에(setState같이 변화가 생기게 되니까) return부분이 다시 실행되고 새로운 함수를 생성하게 되면서 의도치 않은 리랜더링이 발생됨.
+    setter(e.target.value)
+  }, [])
+  return [value, handler]
 }
