@@ -12,6 +12,7 @@ import { useFullscreen } from './hooks/useFullscreen'
 import { useNotification } from './hooks/useNotification'
 import { useAxios } from './hooks/useAxios'
 import { useInputWithValidator } from './hooks/useInputWithValidator'
+import { useFetch } from './hooks/useFetch'
 
 
 export {
@@ -28,5 +29,5 @@ export {
   useFullscreen,
   useNotification,
   useAxios,
-  useInputWithValidator
+  useFetch
 }
